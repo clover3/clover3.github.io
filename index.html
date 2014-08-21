@@ -8,43 +8,7 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Clover3.github.io</title><script type="text/javascript">
-function DateToString(d)
-{
-	str = d.getFullYear() + '/'  + (d.getMonth() +1)+ '/'  + d.getDate();
-	return str;
-}
-
-function GetSecondLeft(dday)
-{
-	var now = new Date();
-	var secondLeft = (dday.getTime() - now.getTime()) / 1000;
-	return Math.ceil(secondLeft);
-}
-
-function GetDayLeft(dday)
-{
-	var now = new Date();
-	var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-	var dayLeft = (dday.getTime() - today.getTime()) / 1000 / 60 / 60 / 24;
-	return Math.ceil(dayLeft);
-}
-
-
-function GetHourLeft(dday)
-{
-	var hourLeft = GetSecondLeft(dday) / 3600;
-	return Math.ceil(hourLeft);
-}
-
-
-
-
-dday_clover = new Date('04/11/2015');
-
-
-
-</script>
+    <title>Clover3.github.io</title>
   </head>
 
   <body>
@@ -74,7 +38,7 @@ This is clover3's page.
 <span><b>Hours Left : <span id="hour_left"></span> hours</b><br />
 <span><b>Seconds Left : <span id="second_left"></span> seconds </b><br />
 
-<script type="text/javascript">
+<script type="text/javascript" src="dday.js">
 document.getElementById("today").innerHTML = DateToString(d = new Date());
 document.getElementById("dday").innerHTML = DateToString(dday_clover);
 document.getElementById("day_left").innerHTML = GetDayLeft(dday_clover);
