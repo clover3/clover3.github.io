@@ -8,7 +8,43 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Clover3.github.io</title>
+    <title>Clover3.github.io</title><script type="text/javascript">
+function DateToString(d)
+{
+	str = d.getFullYear() + '/'  + (d.getMonth() +1)+ '/'  + d.getDate();
+	return str;
+}
+
+function GetSecondLeft(dday)
+{
+	var now = new Date();
+	var secondLeft = (dday.getTime() - now.getTime()) / 1000;
+	return Math.ceil(secondLeft);
+}
+
+function GetDayLeft(dday)
+{
+	var now = new Date();
+	var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+	var dayLeft = (dday.getTime() - today.getTime()) / 1000 / 60 / 60 / 24;
+	return Math.ceil(dayLeft);
+}
+
+
+function GetHourLeft(dday)
+{
+	var hourLeft = GetSecondLeft(dday) / 3600;
+	return Math.ceil(hourLeft);
+}
+
+
+
+
+dday_clover = new Date('04/11/2015');
+
+
+
+</script>
   </head>
 
   <body>
@@ -18,7 +54,7 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/clover3">View on GitHub</a>
 
-          <h1 id="project_title">Clover3.github.io</h1>
+          <h1 id="project_title">Page of Clover3 </h1>
           <h2 id="project_tagline"></h2>
 
         </header>
@@ -28,17 +64,25 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome!</h3>
+This is clover3's page.
+<h3>
+<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>D-Day of Clover</h3>
+<span><b>Today : <span id="today"></span></b><br />
+<span><b>D-Day : <span id="dday"></span></b><br />
+<span><b>Days Left : <span id="day_left"></span> days</b><br />
+<span><b>Hours Left : <span id="hour_left"></span> hours</b><br />
+<span><b>Seconds Left : <span id="second_left"></span> seconds </b><br />
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<script type="text/javascript">
+document.getElementById("today").innerHTML = DateToString(d = new Date());
+document.getElementById("dday").innerHTML = DateToString(dday_clover);
+document.getElementById("day_left").innerHTML = GetDayLeft(dday_clover);
+document.getElementById("hour_left").innerHTML = GetHourLeft(dday_clover);
+document.getElementById("second_left").innerHTML = GetSecondLeft(dday_clover);
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
+</script>
+<!--
 <h3>
 <a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
 
@@ -58,9 +102,10 @@ $ git checkout gh-pages
 <a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
 
 <p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+
+-->
       </section>
     </div>
-
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
