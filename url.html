@@ -1,32 +1,32 @@
 <html>
 <script>
 
+function AddLink(strLink)
+{
+var leftDiv = document.createElement("div"); //Create left div
+    leftDiv.id = "left"; //Assign div id
+    leftDiv.setAttribute("style", "float:left; width:66.5%; line-height: 26px; text-align:left; font-size:12pt; padding-left:8px; height:26px;"); //Set div attributes
+    a = document.createElement('a');
+    a.href =  strLink; // Insted of calling setAttribute 
+    a.innerHTML = strLink // <a>INNER_TEXT</a>
+    leftDiv.appendChild(a); // Append the link to the div
+    document.body.appendChild(leftDiv); // And append the div to the document body
+}
+
 function handler() {
   if(this.readyState == this.DONE) {
-    if(this.responseXML == null)
-	{
-		var parser = new DOMParser();
-		var xmlDoc = parser.parseFromString(this.response, "text/html");
-		var keystr = xmlDoc.getElementsByTagName('textarea')[0].childNodes[0].nodeValue;
-		alert(keystr);
-		window.location.replace(keystr);
-
-	}
-    if(this.status == 200 &&
-       this.responseXML != null) {
-      // success!
-	mytext = this.responseXML.getElementById('textarea').textContent;
-	alert(mytext);
-      return;
-    }
+	var parser = new DOMParser();
+	var xmlDoc = parser.parseFromString(this.response, "text/html");
+	var keystr = xmlDoc.getElementsByTagName('textarea')[0].childNodes[0].nodeValue;
+	AddLink(keystr);
   }
+  else
+	alert("error");
 }
 
 var req = new XMLHttpRequest();  
 req.onload = handler;
 req.open('GET', 'http://shrib.com/GkWegnkO?');   
-req.setRequestHeader('Access-Control-Allow-Origin','http://clover3.github.io');
-req.setRequestHeader('Access-Control-Allow-Headers','origin, x-requested-with, content-type, content-type, accept');
 req.send(null);  
 
 </script>
