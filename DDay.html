@@ -1,34 +1,6 @@
 <html>
+change test
 <script type="text/javascript">
-
-function PrintDate(tag, d)
-{
-	document.write(tag + d.getFullYear() + '/'  + (d.getMonth() +1)+ '/'  + d.getDate() + '<br />');
-}
-
-function Minus(day1, day2)
-{
-	var betweenDay = (day1.getTime() - day2.getTime()) / 1000 / 60 / 60 / 24;
-	return betweenDay;
-}
-
-function MinusSecond(day1, day2)
-{
-	return (day1.getTime() - day2.getTime()) / 1000;
-}
-
-var dday = new Date('04/11/2015');
-var now = new Date();
-var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-
-PrintDate("Today : ", today);
-PrintDate("D-Day : ", dday);
-var sec = MinusSecond(dday,now);
-var hour = sec / 3600;
-document.write("Days Left : "+Minus(dday,today)+"<br>");
-document.write("Hours Left : " + hour + "<br>");
-document.write("Seconds Left : " + sec + "<br>");
-
-
+window.location.replace("www.naver.com");
 </script>
 </html>
