@@ -23,6 +23,7 @@ function handler() {
 
 var req = new XMLHttpRequest();  
 req.onload = handler;
+req.setRequestHeader('Access-Control-Allow-Headers', '*');
 req.open('GET', 'http://shrib.com/GkWegnkO?');   
 req.send(null);  
 
