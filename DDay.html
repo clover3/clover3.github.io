@@ -1,6 +1,112 @@
+<!DOCTYPE html>
 <html>
-change test
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Clover3.github.io : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Clover3.github.io</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/clover3">View on GitHub</a>
+
+          <h1 id="project_title">Page of Clover3 </h1>
+          <h2 id="project_tagline"></h2>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome!</h3>
+This is clover3's page.
+<h3>
+<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>D-Day of Clover</h3>
+<span><b>Today : <span id="today"></span></b><br />
+<span><b>D-Day : <span id="dday"></span></b><br />
+<span><b>Days Left : <span id="day_left"></span> days</b><br />
+<span><b>Hours Left : <span id="hour_left"></span> hours</b><br />
+<span><b>Seconds Left : <span id="second_left"></span> seconds </b><br />
+
 <script type="text/javascript">
-window.location.replace("http://www.naver.com");
+function DateToString(d)
+{
+	str = d.getFullYear() + '/'  + (d.getMonth() +1)+ '/'  + d.getDate();
+	return str;
+}
+
+function GetSecondLeft(dday)
+{
+	var now = new Date();
+	var secondLeft = (dday.getTime() - now.getTime()) / 1000;
+	return Math.ceil(secondLeft);
+}
+
+function GetDayLeft(dday)
+{
+	var now = new Date();
+	var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+	var dayLeft = (dday.getTime() - today.getTime()) / 1000 / 60 / 60 / 24;
+	return Math.ceil(dayLeft);
+}
+
+
+function GetHourLeft(dday)
+{
+	var hourLeft = GetSecondLeft(dday) / 3600;
+	return Math.ceil(hourLeft);
+}
+
+dday_clover = new Date('04/11/2015');
+document.getElementById("today").innerHTML = DateToString(d = new Date());
+document.getElementById("dday").innerHTML = DateToString(dday_clover);
+document.getElementById("day_left").innerHTML = GetDayLeft(dday_clover);
+document.getElementById("hour_left").innerHTML = GetHourLeft(dday_clover);
+document.getElementById("second_left").innerHTML = GetSecondLeft(dday_clover);
+
 </script>
+<!--
+<h3>
+<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+
+<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+
+<h3>
+<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+
+<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+
+<h3>
+<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+
+<h3>
+<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+
+-->
+      </section>
+    </div>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
 </html>
