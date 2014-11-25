@@ -1,0 +1,77 @@
+<html>
+
+
+<head>
+<meta charset='utf-8'>
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="description" content="Clover3.github.io : ">
+
+<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+<title>Clover3.github.io</title>
+</head>
+
+
+
+
+<body>
+
+
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="http://clover3.github.io/page">Back to the Page</a>
+
+          <h1 id="project_title">DDay for Clover3 </h1>
+          <h2 id="project_tagline"></h2>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>	
+<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a><span><b>Todays earn : <span id="today"></span></b></h3>
+
+      </section>
+    </div>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+
+<script>
+perMonth = 2810810.0;
+perDay = perMonth / 21;
+perSecond = perDay / 8 / 3600;
+var myVar=setInterval(function () {myTimer()}, 100);
+accMoney = 0;
+
+function UpdateMoney()
+{
+	var now = new Date();
+	year = now.getFullYear();
+	month = now.getMonth();
+	date = now.getDate();
+	var td = new Date(year, month, date, 10,0,0,0);
+	
+	accTime = now.getTime() - td.getTime();
+	accMoney = accTime / 1000. * perSecond;
+    document.getElementById("today").innerHTML = " ￦ " + accMoney;
+}
+
+function myTimer() {
+	UpdateMoney();
+ //   accMoney += ( perSecond / 10 );
+ //   document.getElementById("today").innerHTML = " ￦ " + accMoney.toString();
+}
+
+</script>
+
+<body>
+</html>
