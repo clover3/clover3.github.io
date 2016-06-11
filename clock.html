@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<meta charset=utf8>
+<head>
+<script>
+function startTime() {
+	var arrays = [
+		["저녁         :", new Date("June 11, 2016 16:59")],
+		["알고리즘 SMP :", new Date("June 12, 2016 13:59")],
+		["일본어 시험  :", new Date("June 13, 2016 13:59")],
+			
+			];
+	var then = new Date();
+    var today = new Date();
+	var gap = 0;
+	var h = 0;
+	var m = 0;
+	var s = 0;
+	var msg = "";
+	for (var d in arrays) {
+		//then = new Date("June 11, 2016 19:00:00");
+		then = arrays[d][1];
+		gap = then.getTime() - today.getTime();
+		if (gap < 0) continue;
+		gap /= 1000;
+		h = parseInt(gap / 60 / 60);
+		m = checkTime(parseInt(gap / 60) % 60);
+		s = checkTime(parseInt(gap % 60));
+		msg += arrays[d][0]+" "+h+":"+m+":"+s+"<br>";
+	}
+	document.getElementById('txt').innerHTML = msg; // h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+</head>
+
+<body onload="startTime()">
+
+<div id="txt" style="text-align:left; padding:30px; font-family:consolas; font-size:36pt;"></div>
+
+</body>
+</html>
+
